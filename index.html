@@ -1,0 +1,35 @@
+<html>
+    <head>
+    </head>
+
+    <body>
+        <button id="getData">Get Data</button>
+        <button id="getList">Get List</button>
+        <br><br>
+
+        <form id="myForm">
+            <input type="text" name="firtname" id="firtname" value="">
+            <input type="text" name="lastname" id="lastname" value=""> <br>
+            <button id="submitForm">Submit</button>
+        </form>
+
+        <p id="posts"></p>
+        <p id="message"></p>
+        <p id="greeting"></p>
+
+
+        <script>
+            document.getElementById("getData").addEventListener('click', getData);
+
+            function getData(){
+                fetch('https://mysite.itvarsity.org/api/fetch/get-data/')
+                    .then(function(response){
+                        return response.text();
+                    })
+                    .then(function(data){
+                        document.getElementById("message").innerHTML = data;
+                    })
+            }
+        </script>
+    </body>
+</html>
